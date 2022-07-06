@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% block content %}
+<style>
+    a {
+        text-decoration: none!important;
+        font-size: medium;
+    }
+</style>
+
+<div class="container">
+    <div class="card mx-auto" style="max-width: 900px;">
+        <div class="card-header">
+            <h4 class="card-title text-center">Profile</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 mx-auto my-auto">
+                    <p class="text-capitalize">Name - {{user.name}}</p>
+                    <p>Email - {{user.email}}</p>
+
+                </div>
+                <div class="col-md-4 mx-auto my-auto">
+                    <p>Phone - {{user.phone}}</p>
+                    <p>Questions Limit Left - {{user.number_of_question_allowed}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<hr>
+<div class="conatiner">
+    <div class="row">
+        <div class="col-md-8 offset-sm-2">
+            <h1 class="text-center mt-3 mb-3">Polls Created!</h1>
+            <a class="btn btn-primary mb-3 float-right" href="/add_poll/" role="button">Add <i class="fas fa-plus"></i></a>
+
+            <ul class="list-group">
+                {% for poll in polls %}
+                <li class="list-group-item"><span>{{ poll.text|truncatewords:10 }}
+            
+                </span>
+                    <a href="/edit_poll/{{ poll.id }}" class="float-end" data-toggle="tooltip" data-placement="top" title="Edit Poll"><i class="fas fa-pencil-alt float-right btn btn-primary btn-sm mr-1"></i></a>
+
+                </li>
+
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

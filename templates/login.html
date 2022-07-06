@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block content %}
+<section class="vh-100">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong">
+                    <div class="card-body p-3 text-center">
+
+                        <h3 class="mb-5">Login</h3>
+                        <div class="container-fluid">
+                            <form method="post">
+                                {% csrf_token %} {{form.as_p}}
+                                <button type="submit" class="btn  btn-primary btn-lg btn-block">Login</button>
+                            </form>
+                            <!-- for forgot password -->
+                            <div class="forgot-password">
+                                <a href="/accounts/forget_password/">Forgot Password?</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
